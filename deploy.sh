@@ -27,6 +27,11 @@ fi
 
 git pull --recurse-submodules=on-demand
 
+if [ "$2" == "--pull-only" ]; then
+  echo -e "${COLOR_YELLOW}Pull only, exiting...${NO_COLOR}"
+  exit 0
+fi
+
 # Create env based on .env.sample if .env does not exist
 if [ ! -f .env ]; then
   echo -e "${COLOR_YELLOW}.env file not found${NO_COLOR}"
